@@ -1,5 +1,6 @@
 using System.Text;
 using API.Data;
+using API.DTOs;
 using API.Extension;
 using API.Interface;
 using API.Servies;
@@ -13,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
+builder.Services.AddOptions<JwtOption>().BindConfiguration(nameof(JwtOption));
 
 var app = builder.Build();
 
